@@ -14,7 +14,7 @@ $light_color: rgb(160, 160, 160);
 body {
   color: #fff;
   overflow-x: hidden;
-  max-width: 100vw;
+  // max-width: 100vw;
   height: 100vh;
   overflow-y: hidden;
   background-color: #1d1d1d;
@@ -70,7 +70,7 @@ div {
 }
 section {
   min-height: 80vh;
-  min-width: 100vw;
+  max-width: 100vw;
   position: relative;
   padding-bottom: 2vw;
 }
@@ -90,10 +90,12 @@ section {
     background-color: #000;
   }
 }
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 header {
   min-height: 100vh;
-  border-bottom: 1px solid #000;
   .name {
     padding: 2%;
     margin: 0;
@@ -169,6 +171,7 @@ header {
   .abs-text {
     position: absolute;
     top: 105%;
+    max-width: 100vw;
     width: 100vw;
     text-align: center;
     z-index: 1;
@@ -179,9 +182,7 @@ header {
   padding: 4% 2%;
   text-transform: uppercase;
   font-size: 3.5vw;
-  &.skill-title {
-    text-align: center;
-  }
+  text-align: center;
 }
 
 .skills-section {
@@ -241,10 +242,20 @@ header {
     }
   }
 }
-
+footer {
+  background-color: #181818;
+  .contact-card {
+    width: 100%;
+    font-size: large;
+    padding: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+  }
+}
 .projects-section {
   background-color: #1d1d1d;
-  border-top: 2px solid #000;
   .p-cont {
     margin: 1% 1%;
   }
@@ -326,16 +337,41 @@ header {
   }
 }
 @media screen and (max-width: 992px) {
+  h1 {
+    font-size: 5.8vw;
+  }
+  h2 {
+    font-size: 5.2vw;
+  }
+  h3 {
+    font-size: 4.7vw;
+  }
+  h4 {
+    font-size: 4.3vw;
+  }
+  h5 {
+    font-size: 3.7vw;
+  }
+  h6 {
+    font-size: 3.2vw;
+  }
+  p,
+  a,
+  span,
+  div,
+  .s-title,
+  .p-title {
+    font-size: 4vw;
+  }
+
+  .section-title {
+    font-size: 6vw;
+  }
   .my-row {
     top: 0;
   }
   .btn {
     padding: 1% 4%;
-  }
-  p,
-  span,
-  div {
-    font-size: 2vh;
   }
   header {
     padding: 0 0;
@@ -395,11 +431,31 @@ header {
   .projects-section {
     .p-cont {
       .p-card {
-        &::after,
-        &::before {
-          width: 0%;
+        &::before,
+        &::after {
+          width: 100%;
           height: 0%;
         }
+      }
+    }
+  }
+  .contact-row {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    max-width: 100% !important;
+    margin: auto !important;
+    .col {
+      text-align: center;
+      max-width: 40%;
+      a {
+        display: block;
+        text-align: center;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        background-color: $primary_color;
+        color: #fff;
       }
     }
   }
@@ -454,6 +510,9 @@ header {
       margin-top: 8vw;
     }
   }
+  .hide-pc {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -496,7 +555,7 @@ header {
 }
 
 .background {
-  width: 100vw;
+  max-width: 100vw;
   .bg-elem {
     transform: rotate(30deg);
     border-radius: 40%;
@@ -521,7 +580,7 @@ header {
 }
 .loading-container {
   position: absolute;
-  width: 100vw;
+  max-width: 100vw;
   height: 100vh;
   background-color: #1d1d1d;
   z-index: 100;
